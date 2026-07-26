@@ -43,7 +43,16 @@ version = 0.1
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
 # (requirements line me kivy aur kivymd versions exact yahi rakhne hain)
+# Requirements (is line me sabhi packages shamil hain)
 requirements = python3,kivy==2.2.1,kivymd==1.2.0,requests,urllib3,chardet,idna
+
+# Target Architecture (Sirf arm64-v8a rakhein, isse build fast aur lightweight ho jayega)
+android.archs = arm64-v8a
+
+# API Levels aur License
+android.api = 33
+android.minapi = 21
+android.accept_sdk_license = True
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
