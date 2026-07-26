@@ -23,14 +23,16 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y openjdk-17-jdk libffi-dev libssl-dev build-essential ccache git libltdl-dev
 
-    - name: Install Python Build Tools
+    - name: Install Python Packaging Tools
       run: |
         pip install --upgrade pip
         pip install "cython<3.0.0" "setuptools<69.0.0" buildozer==1.5.0
 
     - name: Build APK with Buildozer
+      env:
+        ACCEPT_SDK_LICENSE: 'yes'
       run: |
-        yes | buildozer -v android debug
+        buildozer -v android debug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
